@@ -39,7 +39,7 @@ export const ReportCard: React.FC<ReportCardProps> = ({ report }) => {
           </div>
         )}
 
-        {(report.reran_count !== null || report.reran_count !== undefined) && (
+        {(report.reran_count !== null && report.reran_count !== undefined) && (
           <div className={styles.row}>
             <span className={styles.label}>Reran Machine:</span>
             <span className={styles.value}>{report.reran_count} time{report.reran_count !== 1 ? 's' : ''}</span>
