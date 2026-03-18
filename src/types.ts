@@ -3,8 +3,9 @@ export interface Report {
   machine_id: number;
   created_at: string;
   is_broken: boolean;
-  temperature_setting: 'delicates' | 'no' | 'low' | 'med' | 'high';
-  reran_count: number;
+  broken_reason?: 'cant_start' | 'not_correct' | null;
+  temperature_setting?: 'delicates' | 'no' | 'low' | 'med' | 'high';
+  reran_count?: number;
   load_weight_kg?: number;
   load_type?: 'clothes' | 'blankets' | 'mixed' | 'towels';
   comments?: string;
@@ -24,8 +25,9 @@ export interface MachineStats {
 export interface FormData {
   machine_id: number;
   is_broken: boolean;
-  temperature_setting: 'delicates' | 'no' | 'low' | 'med' | 'high';
-  reran_count: number;
+  broken_reason?: 'cant_start' | 'not_correct';
+  temperature_setting?: 'delicates' | 'no' | 'low' | 'med' | 'high';
+  reran_count?: number;
   load_weight_kg?: number;
   load_type?: 'clothes' | 'blankets' | 'mixed' | 'towels';
   comments?: string;

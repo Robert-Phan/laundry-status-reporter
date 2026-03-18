@@ -51,6 +51,13 @@
   margin-top: 0.5rem;
 }
 
+.reasonRadioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
 .radioLabel {
   display: flex;
   align-items: center;
@@ -94,5 +101,9 @@
 
   .formGroup {
     margin-bottom: 1rem;
+  }
+
+  .radioGroup {
+    gap: 1rem;
   }
 }

@@ -11,6 +11,7 @@ export async function submitReport(data: FormData): Promise<Report | null> {
       {
         machine_id: data.machine_id,
         is_broken: data.is_broken,
+        broken_reason: data.broken_reason ?? null,
         temperature_setting: data.temperature_setting,
         reran_count: data.reran_count,
         load_weight_kg: data.load_weight_kg,
@@ -36,6 +37,8 @@ export async function getReportsForMachine(machineId: number): Promise<Report[]>
     .select('*')
     .eq('machine_id', machineId)
     .order('created_at', { ascending: false })
+
+  console.log(data);
 
   if (error) {
     console.error('Error fetching reports:', error)

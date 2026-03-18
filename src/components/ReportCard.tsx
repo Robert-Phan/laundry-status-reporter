@@ -32,15 +32,19 @@ export const ReportCard: React.FC<ReportCardProps> = ({ report }) => {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.row}>
-          <span className={styles.label}>Temperature Setting:</span>
-          <span className={styles.value}>{tempSettingFormat[report.temperature_setting]}</span>
-        </div>
+        {report.temperature_setting && (
+          <div className={styles.row}>
+            <span className={styles.label}>Temperature Setting:</span>
+            <span className={styles.value}>{tempSettingFormat[report.temperature_setting]}</span>
+          </div>
+        )}
 
-        <div className={styles.row}>
-          <span className={styles.label}>Reran Machine:</span>
-          <span className={styles.value}>{report.reran_count} time{report.reran_count !== 1 ? 's' : ''}</span>
-        </div>
+        {(report.reran_count !== null || report.reran_count !== undefined) && (
+          <div className={styles.row}>
+            <span className={styles.label}>Reran Machine:</span>
+            <span className={styles.value}>{report.reran_count} time{report.reran_count !== 1 ? 's' : ''}</span>
+          </div>
+        )}
 
         {report.load_weight_kg && (
           <div className={styles.row}>

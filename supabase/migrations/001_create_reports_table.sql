@@ -1,11 +1,12 @@
 -- Create the reports table
 CREATE TABLE IF NOT EXISTS reports (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  machine_id INTEGER NOT NULL CHECK (machine_id >= 1 AND machine_id <= 4),
+  machine_id INTEGER NOT NULL CHECK (machine_id >= 325 AND machine_id <= 328),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   is_broken BOOLEAN NOT NULL DEFAULT FALSE,
-  temperature_setting VARCHAR(20) NOT NULL DEFAULT 'med' CHECK (temperature_setting IN ('delicates', 'no', 'low', 'med', 'high')),
-  reran_count INTEGER DEFAULT 0 CHECK (reran_count >= 0),
+  broken_reason VARCHAR(20) CHECK (broken_reason IN ('cant_start', 'not_correct')),
+  temperature_setting VARCHAR(20) CHECK (temperature_setting IN ('delicates', 'no', 'low', 'med', 'high')),
+  reran_count INTEGER CHECK (reran_count >= 0),
   load_weight_kg DECIMAL(5, 2),
   load_type VARCHAR(20) CHECK (load_type IN ('clothes', 'blankets', 'mixed', 'towels')),
   comments TEXT,
